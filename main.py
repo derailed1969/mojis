@@ -7,6 +7,7 @@ forgor = '💀'
 token = os.environ['TOKEN']
 allowedG = {}
 sorry = "sorry i didn't mean to make you mad"
+words = ['forgot', 'forget']
 
 @client.event
 async def on_ready():
@@ -22,7 +23,7 @@ async def on_message(message):
         await message.channel.send("sohrry i didn;tt me an to make oyyu ma,;d")
       if "forgor" in message.content.lower() and not message.author == client.user:
         await message.add_reaction(forgor)
-      if "forgot" in message.content.lower():
+      if any(checkW in message.content.lower() for checkW in words):
         await message.channel.send("* forgor")
     else:
       if message.content.startswith('i love you mojis'):
